@@ -5,7 +5,7 @@ Each task below is scoped to be a single small PR — independently mergeable, b
 ## Phase 0 — repo & tooling
 
 - [x] **0.1** Scaffold Next.js app (TypeScript, App Router, ESLint, Prettier). No features — just a running `npm run dev` skeleton and a README with setup steps.
-- [ ] **0.2** Add Prisma, connect to a dev Postgres, add schema for `users` and `topics` only, write a seed script with ~20 starter topics.
+- [x] **0.2** Add Prisma, connect to a dev Postgres, add schema for `users` and `topics` only, write a seed script with ~20 starter topics.
 - [ ] **0.3** Add Auth.js with GitHub OAuth — login/logout and one protected route (`/dashboard` redirects to login if signed out).
 - [ ] **0.4** GitHub Actions CI: lint + typecheck + build on every PR.
 
