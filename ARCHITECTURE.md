@@ -68,7 +68,7 @@ Vercel (app, free tier) + Supabase or Neon (Postgres, free tier). Groq API calls
 
 | Environment | Trigger | App | Database | Notes |
 |---|---|---|---|---|
-| Local | `next dev` on your machine | localhost | Personal dev branch (Neon) or shared dev project (Supabase) | `.env.local`, untracked, your own low-volume Groq key |
+| Local | `next dev` on your machine | localhost | Personal dev branch (Neon) or shared dev project (Supabase) | `.env`, untracked, your own low-volume Groq key |
 | QA / Preview | Every PR | Vercel Preview Deployment (auto URL per PR) | Neon DB branch per PR (or shared QA Supabase project) | Env vars scoped to "Preview" in Vercel dashboard |
 | Prod | Merge to `main` | Vercel Production | Prod Supabase/Neon project | Env vars scoped to "Production" in Vercel dashboard |
 
@@ -78,7 +78,7 @@ Rule: every environment has its own GitHub OAuth app, DB, and Groq API key. A le
 
 - No secret values are ever committed. `.gitignore` excludes all `.env*` files except `.env.example`.
 - `.env.example` lists required variable names only — no real values, committed to the repo as documentation.
-- Real values live in exactly two places: Vercel's Environment Variables UI (Preview and Production scoped separately) and each contributor's local `.env.local` (untracked, never shared).
+- Real values live in exactly two places: Vercel's Environment Variables UI (Preview and Production scoped separately) and each contributor's local `.env` (untracked, never shared).
 - GitHub Actions, if added, use encrypted repo/environment secrets — never inline in workflow YAML.
 - Enable GitHub secret scanning + push protection on the repo (free) as a backstop against accidental commits.
 - User-submitted writing is untrusted input to the LLM prompt: keep it in a clearly delimited section rather than concatenated into instructions, to limit prompt-injection risk, and never let LLM output trigger anything beyond returning scores/feedback text.
